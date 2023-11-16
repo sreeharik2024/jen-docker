@@ -1,12 +1,10 @@
-FROM python:3.9-slim
-# Set the working directory in the container
-WORKDIR /usr/src/app
+FROM python:3.6
 
-# Copy the current directory contents into the container at /usr/src/app
-COPY . /usr/src/app
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-# Run your application
-CMD ["python", "simple.py"]
+COPY . /opt/
 
+EXPOSE 8080
+
+WORKDIR /opt
+
+ENTRYPOINT ["python", "simple.py"]
 
